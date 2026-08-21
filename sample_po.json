@@ -1,0 +1,9 @@
+{
+  "po_number": "PO-4521",
+  "vendor_name": "Acme Supplies Inc.",
+  "line_items": [
+    {"line_no": 1, "description": "Widget A", "quantity": 10, "unit_price": 12.00, "tax_rate": 0.08},
+    {"line_no": 2, "description": "Widget B", "quantity": 5, "unit_price": 25.00, "tax_rate": 0.08},
+    {"line_no": 3, "description": "Widget C", "quantity": 20, "unit_price": 3.50, "tax_rate": 0.08}
+  ]
+}
