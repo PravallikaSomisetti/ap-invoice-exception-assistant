@@ -202,7 +202,7 @@ ap-invoice-exception-assistant/
 ```
 ### File Responsibilities
 
-# app.py
+## app.py
 
 Main Streamlit application.
 
@@ -215,7 +215,7 @@ Purchase Order validation
 Exception review
 AI assistant interface
 
-# extraction.py
+## extraction.py
 
 Handles invoice document processing and AI-based extraction.
 
@@ -228,7 +228,7 @@ Gemini API interaction
 Structured JSON extraction
 Pydantic validation
 
-# models.py
+## models.py
 
 Defines the application's structured data models.
 
@@ -241,7 +241,7 @@ PurchaseOrderLineItem
 ```
 These models ensure that invoice and PO data follow a consistent schema.
 
-# matching.py
+## matching.py
 
 Contains the invoice-to-PO reconciliation logic.
 
@@ -253,7 +253,7 @@ Unmatched invoice lines
 Unbilled PO lines
 Other configured exceptions
 
-# chat.py
+## chat.py
 
 Provides the natural-language AP assistant.
 
@@ -332,44 +332,54 @@ Python 3.10 or later
 pip
 Git
 Gemini API key
-1. Clone the Repository
-git clone https://github.com/PravallikaSomisetti/ap-invoice-exception-assistant.git
 
+### 1. Clone the Repository
+```text
+git clone https://github.com/PravallikaSomisetti/ap-invoice-exception-assistant.git
+```
 Navigate into the project directory:
 
 cd ap-invoice-exception-assistant
-2. Create a Virtual Environment
+
+### 2. Create a Virtual Environment
 Windows
+```text
 python -m venv venv
-
+```
 Activate the environment:
-
+```text
 venv\Scripts\activate
+```
 macOS / Linux
+```text
 python3 -m venv venv
-
+```
 Activate:
-
+```text
 source venv/bin/activate
-3. Install Dependencies
+```
+
+### 3. Install Dependencies
+```text
 pip install -r requirements.txt
-Environment Configuration
+```
+# Environment Configuration
 
 The application requires a Gemini API key.
 
 Create a file named:
-
+```text
 .env
-
+```
 in the root directory of the project.
 
 Add:
-
+```text
 GEMINI_API_KEY=your_gemini_api_key_here
-
+```
 Replace your_gemini_api_key_here with your actual API key.
 
-Security Note
+### Security Note
 
 The .env file is intentionally excluded from Git using .gitignore.
 
@@ -377,7 +387,7 @@ Never commit or expose your actual API key.
 
 The application reads the key through an environment variable rather than storing credentials directly in the source code.
 
-Running the Application
+# Running the Application
 
 Start the Streamlit application with:
 
@@ -388,29 +398,31 @@ The application will open in your browser.
 The default local address is:
 
 http://localhost:8501
-How to Use
-Step 1 — Upload Vendor Invoice
+
+# How to Use
+### Step 1 — Upload Vendor Invoice
 
 Upload a vendor invoice using the invoice uploader.
 
 Supported formats:
-
+```text
 PDF
 PNG
 JPG
 JPEG
-Step 2 — Upload Purchase Order
+```
+### Step 2 — Upload Purchase Order
 
 Upload the corresponding Purchase Order as a JSON file.
 
 The JSON must follow the expected Purchase Order structure described above.
 
-Step 3 — Process Documents
+### Step 3 — Process Documents
 
 Click:
-
+```text
 Extract & Compare
-
+```
 The application will:
 
 Read the uploaded invoice
@@ -422,7 +434,8 @@ Validate the Purchase Order
 Compare invoice and PO line items
 Detect exceptions
 Display the reconciliation results
-Step 4 — Review Exceptions
+
+# Step 4 — Review Exceptions
 
 The Exception Review section displays:
 
@@ -436,39 +449,41 @@ Explanation of discrepancies
 
 If no exceptions are detected, the application reports that the invoice matches the Purchase Order within the configured reconciliation rules.
 
-Step 5 — Ask the Assistant
+# Step 5 — Ask the Assistant
 
 Use the AI assistant to investigate the processed invoice using natural-language questions.
 
 For example:
-
+```text
 Why was invoice INV-2024-001 flagged?
 Which invoice line has a quantity mismatch?
 What was the PO quantity for line 2?
 What quantity was invoiced?
 Which lines have price mismatches?
 Are there any unbilled PO lines?
-Security
+```
+### Security
 
 API credentials are managed using environment variables.
 
 The application uses:
-
+```text
 os.getenv("GEMINI_API_KEY")
-
+```
 The actual API key is stored locally in:
-
+```text
 .env
-
+```
 The .env file is excluded from version control through .gitignore.
 
-Security Practices
+### Security Practices
 API keys are not hard-coded
 .env is excluded from Git
 Sensitive credentials are not stored in source files
 API keys should never be committed to public repositories
 Exposed API keys should be revoked and replaced immediately
-Error Handling
+
+# Error Handling
 
 The application is designed to handle common processing and validation issues, including:
 
@@ -480,7 +495,8 @@ Invoice/PO mismatches
 Missing PO references
 API authentication errors
 API quota or rate-limit errors
-Future Improvements
+
+# Future Improvements
 
 The project can be extended with:
 
@@ -498,11 +514,13 @@ ERP integration
 Vendor analytics
 Confidence scores for extracted fields
 Automated approval recommendations
-Use Case
+
+# Use Case
 
 The project demonstrates how AI can automate repetitive Accounts Payable workflows.
 
-Traditional AP Workflow
+### Traditional AP Workflow
+```text
 Manual Invoice Review
         |
         v
@@ -519,7 +537,9 @@ Exception Identification
         |
         v
 Manual Investigation
-AI-Assisted Workflow
+```
+### AI-Assisted Workflow
+```text
 Invoice Upload
       |
       v
@@ -539,10 +559,10 @@ Exception Review
       |
       v
 AI Investigation
-
+```
 The goal is to reduce manual effort while providing a structured and explainable approach to invoice exception handling.
 
-Project Highlights
+### Project Highlights
 AI-powered document understanding
 Automated invoice data extraction
 Structured Pydantic data models
@@ -554,16 +574,17 @@ Natural-language invoice investigation
 Modular Python architecture
 Streamlit-based user interface
 Environment-based API key management
-Author
 
-Pravallika Somisetti
+### Author
+
+# Pravallika Somisetti
 
 B.Tech — Artificial Intelligence & Data Science
 
 GitHub:
 https://github.com/PravallikaSomisetti
 
-License
+### License
 
 This project was developed as a technical assessment project and is intended for demonstration and educational purposes.
 
