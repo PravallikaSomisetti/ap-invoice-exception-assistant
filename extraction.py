@@ -134,7 +134,7 @@ def extract_invoice_data(
         )
 
     response = client.chat.completions.create(
-        model="gemini-2.0-flash",
+        model="gemini-3.5-flash",
         messages=[
             {
                 "role": "user",
